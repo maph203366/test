@@ -4,6 +4,9 @@
   "description": "A responsive mobile calculator app.",
   "type": "module",
   "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "sync:android": "npm run build:web && cap sync android",
+    "build:android": "npm run sync:android && cd android && ./gradlew assembleDebug",
     "test": "node --test"
   },
   "keywords": [
@@ -11,5 +14,10 @@
     "mobile",
     "pwa"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1"
+  }
 }

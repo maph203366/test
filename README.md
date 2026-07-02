@@ -25,3 +25,19 @@ python3 -m http.server 8080
 ```bash
 npm test
 ```
+
+## Android 打包
+
+项目使用 Capacitor 将 Web App 封装为 Android 应用。
+
+```bash
+npm run build:android
+```
+
+生成的调试安装包位于：
+
+```text
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+把 APK 发送到 Android 手机后，允许“安装未知来源应用”即可安装。iPhone/iOS 安装包需要 Apple 开发者证书和 macOS/Xcode 环境。
