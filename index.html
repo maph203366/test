@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#111827" />
+    <meta
+      name="description"
+      content="一个适合手机使用的简洁计算器 App，支持加减乘除、百分号和正负号切换。"
+    />
+    <title>手机计算器</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="手机计算器">
+      <section class="calculator" aria-label="计算器">
+        <div class="display" aria-live="polite">
+          <div class="history" id="history">&nbsp;</div>
+          <output class="screen" id="screen">0</output>
+        </div>
+
+        <div class="keypad" role="group" aria-label="计算器按键">
+          <button class="key utility" type="button" data-action="clear">AC</button>
+          <button class="key utility" type="button" data-action="toggle-sign">+/-</button>
+          <button class="key utility" type="button" data-action="percent">%</button>
+          <button class="key operator" type="button" data-operator="divide" aria-label="除以">÷</button>
+
+          <button class="key" type="button" data-number="7">7</button>
+          <button class="key" type="button" data-number="8">8</button>
+          <button class="key" type="button" data-number="9">9</button>
+          <button class="key operator" type="button" data-operator="multiply" aria-label="乘以">×</button>
+
+          <button class="key" type="button" data-number="4">4</button>
+          <button class="key" type="button" data-number="5">5</button>
+          <button class="key" type="button" data-number="6">6</button>
+          <button class="key operator" type="button" data-operator="subtract" aria-label="减去">−</button>
+
+          <button class="key" type="button" data-number="1">1</button>
+          <button class="key" type="button" data-number="2">2</button>
+          <button class="key" type="button" data-number="3">3</button>
+          <button class="key operator" type="button" data-operator="add" aria-label="加上">+</button>
+
+          <button class="key wide" type="button" data-number="0">0</button>
+          <button class="key" type="button" data-action="decimal">.</button>
+          <button class="key equals" type="button" data-action="equals" aria-label="等于">=</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

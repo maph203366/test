@@ -1,0 +1,191 @@
+:root {
+  color-scheme: dark;
+  --bg-start: #0f172a;
+  --bg-end: #111827;
+  --panel: rgba(17, 24, 39, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --display: rgba(2, 6, 23, 0.68);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --key: rgba(51, 65, 85, 0.92);
+  --key-pressed: rgba(71, 85, 105, 0.95);
+  --utility: #64748b;
+  --operator: #f97316;
+  --operator-pressed: #fb923c;
+  --equals: #22c55e;
+  --equals-pressed: #4ade80;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.18), transparent 28rem),
+    linear-gradient(145deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  overflow: hidden;
+}
+
+button,
+output {
+  font: inherit;
+}
+
+.app-shell {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100svh;
+  padding:
+    max(1rem, env(safe-area-inset-top))
+    max(1rem, env(safe-area-inset-right))
+    max(1rem, env(safe-area-inset-bottom))
+    max(1rem, env(safe-area-inset-left));
+}
+
+.calculator {
+  backdrop-filter: blur(24px);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 2rem;
+  box-shadow: 0 2rem 5rem rgba(2, 6, 23, 0.5);
+  display: grid;
+  gap: 1rem;
+  max-width: 25rem;
+  padding: 1rem;
+  width: min(100%, 25rem);
+}
+
+.display {
+  background: var(--display);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  min-height: 9.5rem;
+  padding: 1.25rem;
+  text-align: right;
+}
+
+.history {
+  color: var(--muted);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  min-height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.screen {
+  display: block;
+  font-size: clamp(3rem, 13vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 1.15;
+  margin-top: 1.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.keypad {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.key {
+  align-items: center;
+  appearance: none;
+  background: var(--key);
+  border: 0;
+  border-radius: 1.25rem;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 0.45rem 1rem rgba(2, 6, 23, 0.24);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  font-weight: 700;
+  justify-content: center;
+  min-height: 4.5rem;
+  padding: 0;
+  touch-action: manipulation;
+  transition:
+    background-color 120ms ease,
+    transform 120ms ease,
+    box-shadow 120ms ease;
+  user-select: none;
+}
+
+.key:active,
+.key.active {
+  background: var(--key-pressed);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08), 0 0.25rem 0.7rem rgba(2, 6, 23, 0.2);
+  transform: translateY(1px) scale(0.98);
+}
+
+.key:focus-visible {
+  outline: 3px solid rgba(96, 165, 250, 0.82);
+  outline-offset: 3px;
+}
+
+.utility {
+  background: var(--utility);
+  color: #f8fafc;
+}
+
+.operator {
+  background: var(--operator);
+}
+
+.operator:active,
+.operator.active {
+  background: var(--operator-pressed);
+}
+
+.equals {
+  background: var(--equals);
+}
+
+.equals:active,
+.equals.active {
+  background: var(--equals-pressed);
+}
+
+.wide {
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 1.75rem;
+}
+
+@media (max-width: 23rem) {
+  .calculator {
+    border-radius: 1.5rem;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .display {
+    min-height: 8rem;
+    padding: 1rem;
+  }
+
+  .keypad {
+    gap: 0.55rem;
+  }
+
+  .key {
+    border-radius: 1rem;
+    min-height: 3.8rem;
+  }
+}

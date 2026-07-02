@@ -1,0 +1,15 @@
+{
+  "name": "mobile-calculator-app",
+  "version": "1.0.0",
+  "description": "A responsive mobile calculator app.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "calculator",
+    "mobile",
+    "pwa"
+  ],
+  "license": "MIT"
+}
