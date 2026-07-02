@@ -1,0 +1,8 @@
+{
+  "appId": "com.maph203366.mobilecalculator",
+  "appName": "手机计算器",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
